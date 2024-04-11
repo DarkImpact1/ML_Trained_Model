@@ -1,7 +1,6 @@
-pickle-mixin
-os
-nltk
-scikit-learn
-numpy
-pandas
-re
+pickle-mixin-1.0.2
+nltk==3.8.1
+regex==2023.12.25
+scikit-learn==1.4.2
+numpy==1.26.4
+pandas==2.2.2
