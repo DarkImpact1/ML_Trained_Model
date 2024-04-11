@@ -1,8 +1,8 @@
 pickle
 os
-re
 ntlk
 scikit-learn
 numpy
 pandas
 streamlit
+re
