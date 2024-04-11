@@ -54,5 +54,5 @@ The IMDb dataset used for training the machine learning model was obtained from 
 
 ## Contact
 
-For questions, feedback, or contributions, please reach out to [mohit.dev.new@gmail.com](mailto📧).
+For questions, feedback, or contributions, please reach out to [click here](mailto:mohit.dev.new@gmail.com).
 ```
