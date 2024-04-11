@@ -1,6 +1,6 @@
-pickle
+pickle-mixin
 os
-ntlk
+nltk
 scikit-learn
 numpy
 pandas
