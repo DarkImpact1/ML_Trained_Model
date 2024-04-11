@@ -1,13 +1,3 @@
-<<<<<<< HEAD:requirements.txt
-pickle-mixin
-os
-nltk
-scikit-learn
-numpy
-pandas
-streamlit
-re
-=======
 pickle-mixin
 os
 nltk
@@ -15,4 +5,3 @@ scikit-learn
 numpy
 pandas
 re
->>>>>>> 9515d0e3cb8d56325219e5524f88dbf58e54efe2:requirement.txt
