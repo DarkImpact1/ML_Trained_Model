@@ -4,5 +4,4 @@ nltk
 scikit-learn
 numpy
 pandas
-streamlit
 re
