@@ -1,6 +1,7 @@
 import os
 import re
 import pickle
+import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
