@@ -1,6 +1,8 @@
 import numpy as np 
-import streamlit as st 
-import pickle , os, re, nltk
+import streamlit as st
+import os
+import re
+import pickle
 # nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -27,13 +29,4 @@ def make_prediction(review):
     pred  = loaded_model.predict(vector)
     return "Positive" if (pred == 1) else "Negative"
     
-
-
-testing_review = """
-The movie had a promising premise, but it failed to deliver. 
-The acting was wooden, the plot was predictable, and the dialogue felt forced. 
-Overall, it was a disappointing experience.
-"""
-
-make_prediction(testing_review)
 
