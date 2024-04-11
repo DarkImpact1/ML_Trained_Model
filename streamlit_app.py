@@ -3,6 +3,7 @@ import model
 
 def create_page():
     st.title("IMDb Review Classifier")
+    st.markdown("[Click here to visit developer](https://www.linkedin.com/in/mohit-dwivedi13/)")
     st.write("### Write the review to check whether it is Positive or Negative")
     review = st.text_area("Review Here","")
     button  = st.button("Classify")
