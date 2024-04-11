@@ -2,9 +2,9 @@
 ```markdown
 # IMDb Review Classifier
 
-IMDb Review Classifier is a machine learning-based web application that analyzes movie reviews to predict whether they are positive or negative.
+IMDb Review Classifier is a machine learning-based web application that analyzes movie reviews to predict whether they are positive or negative.```
 
-## Usage
+# Usage
 
 1. Clone the repository:
 
