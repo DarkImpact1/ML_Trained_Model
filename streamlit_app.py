@@ -1,5 +1,5 @@
 import streamlit as st 
-import app
+import model
 
 def create_page():
     st.title("IMDb Review Classifier")
@@ -10,7 +10,7 @@ def create_page():
         if(len(review) == 0):
             st.warning("Kindly, provide some review to classify")
         else:
-            prediction = app.make_prediction(review)
+            prediction = model.make_prediction(review)
             st.write(f"The given review is : {prediction}")
     
 create_page()
