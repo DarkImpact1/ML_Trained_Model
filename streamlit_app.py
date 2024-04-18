@@ -1,7 +1,9 @@
 import streamlit as st 
 import model
 
-def create_page():
+choice = st.sidebar.selectbox("Model", ("Classify Review","Movie Recommender"))
+
+def create_review_classifier_page():
     st.title("IMDb Review Classifier")
     st.markdown("[Click here to visit developer](https://www.linkedin.com/in/mohit-dwivedi13/)")
     st.write("### Write the review to check whether it is Positive or Negative")
@@ -12,6 +14,27 @@ def create_page():
             st.warning("Kindly, provide some review to classify")
         else:
             prediction = model.make_prediction(review)
-            st.write(f"The given review is : {prediction}")
+            st.subheader(f"The given review is : {prediction}")
     
-create_page()
+def create_movie_recommender_page():
+    st.title("Movie Recommender System")
+    st.write("This model is trained on tmdb movie dataset")
+    st.markdown("[Click here to visit developer](https://www.linkedin.com/in/mohit-dwivedi13/)")
+    st.write("### Enter movie name ( Hollywood Movie)")
+    movie_name = st.text_area("Here","")
+    button  = st.button("Suggest few movies")
+    if (button):
+        if(len(movie_name) == 0):
+            st.warning("Kindly, Enter the name of Movie ")
+        else:
+            recommended_movie = model.get_recommendations(movie_name)
+            if recommended_movie:
+                st.subheader("Recommended Movie: ")
+                for movie in recommended_movie:
+                    st.write(movie)
+
+
+if choice == "Classify Review":
+    create_review_classifier_page()
+elif choice == "Movie Recommender":
+    create_movie_recommender_page()
