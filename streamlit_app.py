@@ -1,7 +1,7 @@
 import streamlit as st 
 import model
 
-choice = st.sidebar.selectbox("Model", ("Classify Review","Movie Recommender"))
+choice = st.sidebar.selectbox("Model", ("Movie Recommender","Classify Review"))
 
 def create_review_classifier_page():
     st.title("IMDb Review Classifier")
