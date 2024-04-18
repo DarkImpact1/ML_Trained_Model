@@ -33,8 +33,7 @@ def create_movie_recommender_page():
                 for movie in recommended_movie:
                     st.write(movie)
 
-
-if choice == "Classify Review":
-    create_review_classifier_page()
-elif choice == "Movie Recommender":
+if choice == "Movie Recommender":
     create_movie_recommender_page()
+elif choice == "Classify Review":
+    create_review_classifier_page()
