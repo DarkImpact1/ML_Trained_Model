@@ -7,10 +7,10 @@ choice = st.sidebar.selectbox("Model", ("Movie Recommender","Classify Review"))
 def display_dev_details():
     st.sidebar.header("About Developer")
     st.sidebar.markdown("""
-                        **Name:** Mohit Dwivedi
-                        **LinkedIn:** [Lets Connect](https://www.linkedin.com/in/mohit-dwivedi13/)
-                        **Twitter (X):** [Lets Connect](https://twitter.com/dmohit013)
-                        **Instagram:** [Lets Connect](https://www.instagram.com/dmohit13/)
+        **Name:** Mohit Dwivedi\n
+        **LinkedIn:** [Lets Connect](https://www.linkedin.com/in/mohit-dwivedi13/)\n
+        **Twitter (X):** [click here](https://twitter.com/dmohit013)\n
+        **Instagram:** [click here](https://www.instagram.com/dmohit13/)\n
     """)
     
     
