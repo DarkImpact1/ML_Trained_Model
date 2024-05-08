@@ -71,7 +71,7 @@ def get_recommendations(movie_name_query):
 
             return set(neighbor_movie_titles)
         else:
-            return "No similar movie found. Please enter a valid movie name."
+            return None
     else:
-        return "No match found for the entered movie name."
+        return None
 
