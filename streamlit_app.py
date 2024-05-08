@@ -9,7 +9,10 @@ def display_dev_details():
     st.sidebar.markdown("""
     **Name:** Mohit Dwivedi  
     **LinkedIn:** [Lets Connect](https://www.linkedin.com/in/mohit-dwivedi13/)
+    **Twitter (X):** [Lets Connect](https://twitter.com/dmohit013)
+    **Instagram:** [Lets Connect](https://www.instagram.com/dmohit13/)
     """)
+    
     
     st.sidebar.header("Contact Developer")
     st.sidebar.markdown("""
