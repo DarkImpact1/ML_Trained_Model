@@ -46,7 +46,7 @@ def create_movie_recommender_page():
     """
     st.title("Movie Recommender System")
     st.write(details)
-
+    # to display developer details
     display_dev_details()
     
     st.write("### Enter a Hollywood Movie Name:")
