@@ -77,6 +77,7 @@ def create_movie_recommender_page():
             recommended_movies = model.get_recommendations(movie_name)
             if recommended_movies:
                 st.subheader("Recommended Movies:")
+                st.write("Click on the image for more details ")
                 poster_imdb_list = get_movie_poster_and_imdb_url(recommended_movies)
                 
                 if poster_imdb_list:
