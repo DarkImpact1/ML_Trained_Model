@@ -1,28 +1,14 @@
 import streamlit as st 
-import model, functions
+import model
+import functions
 
 choice = st.sidebar.selectbox("Model", ("Movie Recommender","Classify Review"))
 
 
-def display_dev_details():
-    st.sidebar.header("About Developer")
-    st.sidebar.markdown("""
-        **Name:** Mohit Dwivedi\n
-        **LinkedIn:** [Lets Connect](https://www.linkedin.com/in/mohit-dwivedi13/)\n
-        **Twitter (X):** [click here](https://twitter.com/dmohit013)\n
-        **Instagram:** [click here](https://www.instagram.com/dmohit13/)\n
-    """)
-    
-    
-    st.sidebar.header("Contact Developer")
-    st.sidebar.markdown("""
-    **Email:** mohit.dev.new@gmail.com  
-    """)
-
 def create_review_classifier_page():
     st.title("IMDb Review Classifier")
     st.markdown("[Click here to visit developer](https://www.linkedin.com/in/mohit-dwivedi13/)")
-    display_dev_details()
+    functions.display_dev_details()
     st.write("### Write the review to check whether it is Positive or Negative")
     review = st.text_area("Review Here","")
     button  = st.button("Classify")
@@ -47,7 +33,7 @@ def create_movie_recommender_page():
     st.title("Movie Recommender System")
     st.write(details)
     # to display developer details
-    display_dev_details()
+    functions.display_dev_details()
     
     st.write("### Enter a Hollywood Movie Name:")
     movie_name = st.text_input("e.g., The Dark Knight", "")
@@ -60,15 +46,22 @@ def create_movie_recommender_page():
             recommended_movies = model.get_recommendations(movie_name)
             if recommended_movies:
                 st.subheader("Recommended Movies:")
-                poster_list = functions.get_movie_poster_url(recommended_movies)
-                captions = []
-                image_url = []
-                for pair in poster_list:
-                    movie,poster_url = pair
-                    if poster_url:
-                        captions.append(movie)
-                        image_url.append(poster_url)
-                st.image(image_url, caption=captions, width=200)
+                poster_imdb_list = functions.get_movie_poster_and_imdb_url(recommended_movies)
+                
+                if poster_imdb_list:
+                    for movie, poster_url, imdb_url in poster_imdb_list:
+                        if poster_url:
+                            html = f'''
+                                <div style="display: inline-block; margin: 10px;">
+                                    <a href="{imdb_url}" target="_blank">
+                                        <img src="{poster_url}" alt="{movie}" width="200">
+                                    </a>
+                                    <p style="text-align: center;">{movie}</p>
+                                </div>
+                            '''
+                            st.markdown(html, unsafe_allow_html=True)
+                else:
+                    st.write("No posters found.")
             else:
                 st.write("Sorry, the movie you entered is not in the dataset. Please try another one.")
 
