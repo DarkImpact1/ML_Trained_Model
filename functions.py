@@ -60,6 +60,8 @@ def create_movie_recommender_page():
     an enjoyable viewing experience. Whether users seek similar films or new genres to explore, our recommender leverages the 
     richness of the Tmdb dataset to offer curated selections. With its intuitive interface and accurate predictions, 
     our system enhances the movie-watching journey by delivering relevant recommendations for every user.
+
+    After clicking on the image it will redirect you to the IMDB's official website where you can get more details of recommended movie
     """
     st.title("Movie Recommender System")
     st.write(details)
