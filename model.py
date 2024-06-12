@@ -2,6 +2,8 @@ import os
 import re
 import pickle
 import nltk
+import gzip
+import io
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -34,12 +36,18 @@ def make_prediction(review):
     
 # For Movie Recommender System
 rec_vec_file_path = os.path.join(path,"movie_rec_vec.pkl")
-rec_model_file_path = os.path.join(path,"movie_recommender_model.pkl")
+# rec_model_file_path = os.path.join(path,"movie_recommender_model.pkl") # compressed the file to solve git LFS issue
+compressed_rec_model_file_path = os.path.join(path,"movie_recommender_model.pkl.gz")
 rec_df_path = os.path.join(path, "movie_dataframe.pkl")
 
 loaded_df = pickle.load(open(rec_df_path ,'rb'))
 loaded_rec_vec = pickle.load(open(rec_vec_file_path,'rb'))
-loaded_rec_model = pickle.load(open(rec_model_file_path,'rb'))
+# Loading compressed model 
+with gzip.open(compressed_rec_model_file_path, 'rb') as f:
+    buffer = io.BytesIO(f.read())
+    buffer.seek(0)  # Reset buffer position to start
+    loaded_compressed_rec_model = pickle.load(buffer)
+# loaded_rec_model = pickle.load(open(rec_model_file_path,'rb'))# Now using compressed model 
 
 
 
@@ -61,7 +69,7 @@ def get_recommendations(movie_name_query):
             movie_vector = loaded_rec_vec.transform([loaded_df.iloc[movie_index]['tags1']]).toarray()
 
             # Find the k nearest neighbors of the movie
-            distances, indices = loaded_rec_model.kneighbors(movie_vector, n_neighbors=7)
+            distances, indices = loaded_compressed_rec_model.kneighbors(movie_vector, n_neighbors=7)
 
             # Exclude the first neighbor, which is the movie itself
             neighbor_indices = indices.flatten()[1:]
