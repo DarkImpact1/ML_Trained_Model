@@ -5,7 +5,3 @@ scikit-learn==1.4.2
 numpy==1.26.4
 pandas==2.2.2
 fuzzywuzzy==0.18.0
-gzip
-shutil
-io
-
