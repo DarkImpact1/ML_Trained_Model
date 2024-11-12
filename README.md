@@ -36,7 +36,7 @@ predict whether they are positive or negative.
 4. Run the Streamlit app:
 
    ```bash
-   streamlit run app.py
+   streamlit run streamlit_app.py
    ```
 
 5. Open your web browser and go to http://localhost:8501 to use the application.
