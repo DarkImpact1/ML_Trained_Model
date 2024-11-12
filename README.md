@@ -18,13 +18,13 @@ predict whether they are positive or negative.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/DarkImpact1/IMDb_Review_Classifier.git
+   git clone https://github.com/DarkImpact1/ML_Trained_Model.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd AI_ML_Project
+   cd ML_Trained_Model
    ```
 
 3. Install the required Python libraries:
