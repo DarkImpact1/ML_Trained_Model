@@ -1,7 +1,7 @@
 import os
 import requests
 import streamlit as st
-import model
+import Modules.model as model
 
 def get_movie_poster_and_imdb_url(movies):
     poster_imdb_list = []
@@ -76,8 +76,10 @@ def create_movie_recommender_page():
         if len(movie_name) == 0:
             st.warning("Please enter the name of a movie.")
         else:
-            recommended_movies = model.get_recommendations(movie_name)
+            function_return = model.get_recommendations(movie_name)
+            recommended_movies,closest_match = function_return[0], function_return[1]
             if recommended_movies:
+                st.write("Closest match to the name you entered : ", closest_match)
                 st.subheader("Recommended Movies:")
                 st.write("Click on the image for more details ")
                 poster_imdb_list = get_movie_poster_and_imdb_url(recommended_movies)

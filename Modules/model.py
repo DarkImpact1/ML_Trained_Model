@@ -60,6 +60,7 @@ def get_recommendations(movie_name_query):
     if closest_match is not None:
         closest_movie_name, similarity_score = closest_match[0],closest_match[1]
 
+
         # Check if the similarity score is above the threshold
         if similarity_score >= 80:
             # Find the index of the closest matching movie in the DataFrame
@@ -77,7 +78,7 @@ def get_recommendations(movie_name_query):
             # Get the titles of the nearest neighbor movies
             neighbor_movie_titles = [loaded_df.iloc[i]['title'] for i in neighbor_indices]
 
-            return set(neighbor_movie_titles)
+            return [set(neighbor_movie_titles),closest_movie_name]
         else:
             return None
     else:

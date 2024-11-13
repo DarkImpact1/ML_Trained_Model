@@ -1,6 +1,6 @@
 import streamlit as st 
-import model
-import functions
+import Modules.model as model
+import Modules.functions as functions
 
 choice = st.sidebar.selectbox("Model", ("Movie Recommender","Classify Review"))
 
