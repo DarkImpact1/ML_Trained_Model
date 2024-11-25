@@ -43,13 +43,17 @@ def create_review_classifier_page():
     display_dev_details()
     st.write("### Write the review to check whether it is Positive or Negative")
     review = st.text_area("Review Here","")
+    length = len(review.split())
     button  = st.button("Classify")
     if (button):
-        if(len(review) == 0):
-            st.warning("Kindly, provide some review to classify")
-        else:
+        if length <= 3 and length > 0:
             prediction = model.make_prediction(review)
             st.subheader(f"The given review is : {prediction}")
+        elif(length > 3):
+            lstm_prediction = model.predictionsLSTM(review)
+            st.subheader(f"The given review is : {lstm_prediction}")
+        else:
+            st.subheader("Kindly check if review is not given. ")
 
 # movie recommender page
 def create_movie_recommender_page():

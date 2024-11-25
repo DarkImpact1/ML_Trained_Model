@@ -5,8 +5,8 @@ import gzip
 import shutil
 
 # Defining file paths
-input_file_path = 'F:\Github\ML_Trained_Model\DumpedFile\movie_recommender_model.pkl'
-compressed_file_path = 'F:\Github\ML_Trained_Model\DumpedFile\movie_recommender_model.pkl.gz'
+input_file_path = r'C:\Users\hp\Desktop\ML_Trained_Model\DumpedFile\classifierModel.pkl'
+compressed_file_path = r'C:\Users\hp\Desktop\ML_Trained_Model\DumpedFile\classifierModel.pkl.gz'
 
 # Compressing  the file
 with open(input_file_path, 'rb') as f_in:
