@@ -4,6 +4,6 @@ regex==2023.12.25
 scikit-learn==1.4.2
 numpy==1.26.4
 pandas==2.2.2
+tensorflow
 fuzzywuzzy==0.18.0
 streamlit
-tensorflow
