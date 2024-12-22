@@ -8,11 +8,6 @@ import nltk
 import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-import warnings
-from sklearn.exceptions import InconsistentVersionWarning
-
-# To supress the warning 
-warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 # Download required NLTK resources
 nltk.download('stopwords')

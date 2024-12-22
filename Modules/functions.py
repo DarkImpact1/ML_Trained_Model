@@ -2,11 +2,6 @@ import os
 import requests
 import streamlit as st
 import Modules.model as model
-import warnings
-from sklearn.exceptions import InconsistentVersionWarning
-
-# To supress the warning 
-warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 def get_movie_poster_and_imdb_url(movies):
     poster_imdb_list = []
