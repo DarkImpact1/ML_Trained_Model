@@ -7,3 +7,4 @@ pandas==2.2.2
 tensorflow
 fuzzywuzzy==0.18.0
 streamlit
+warnings
