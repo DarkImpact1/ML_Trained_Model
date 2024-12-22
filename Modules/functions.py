@@ -2,6 +2,11 @@ import os
 import requests
 import streamlit as st
 import Modules.model as model
+import warnings
+from sklearn.exceptions import InconsistentVersionWarning
+
+# To supress the warning 
+warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 def get_movie_poster_and_imdb_url(movies):
     poster_imdb_list = []
@@ -81,7 +86,8 @@ def create_movie_recommender_page():
             st.warning("Please enter the name of a movie.")
         else:
             function_return = model.get_recommendations(movie_name)
-            recommended_movies,closest_match = function_return[0], function_return[1]
+            recommended_movies = function_return['Recommended Movies']
+            closest_match = function_return['Closest Match']
             if recommended_movies:
                 st.write("Closest match to the name you entered : ", closest_match)
                 st.subheader("Recommended Movies:")

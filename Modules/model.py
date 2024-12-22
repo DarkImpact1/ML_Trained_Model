@@ -8,6 +8,12 @@ import nltk
 import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+import warnings
+from sklearn.exceptions import InconsistentVersionWarning
+
+# To supress the warning 
+warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
+
 # Download required NLTK resources
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -83,6 +89,7 @@ def get_recommendations(movie_name_query):
     """Fetches movie recommendations for a given movie name."""
     # Find the closest matching movie name using fuzzy matching
     closest_match = process.extractOne(movie_name_query, loaded_df['title'])
+    # print(closest_match)
 
     if closest_match is not None:
         closest_movie_name, similarity_score = closest_match[0], closest_match[1]
@@ -111,3 +118,6 @@ def get_recommendations(movie_name_query):
             return {"Error": "Low similarity score. No recommendations found."}
     else:
         return {"Error": "No matching movie found."}
+
+if __name__ == "__main__":
+    get_recommendations("Superman")
