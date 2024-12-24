@@ -80,7 +80,7 @@ with gzip.open(compressed_rec_model_file_path, 'rb') as f:
     buffer.seek(0)  # Reset buffer position to start
     loaded_compressed_rec_model = pickle.load(buffer)
 
-def get_recommendations(movie_name_query):
+def get_recommendations(movie_name_query,matching_percent):
     """Fetches movie recommendations for a given movie name."""
     # Find the closest matching movie name using fuzzy matching
     closest_match = process.extractOne(movie_name_query, loaded_df['title'])
@@ -89,7 +89,7 @@ def get_recommendations(movie_name_query):
     if closest_match is not None:
         closest_movie_name, similarity_score = closest_match[0], closest_match[1]
 
-        if similarity_score >= 80:
+        if similarity_score >= matching_percent:
             # Find the index of the closest matching movie
             movie_index = loaded_df.index[loaded_df['title'] == closest_movie_name].tolist()[0]
 
@@ -110,9 +110,13 @@ def get_recommendations(movie_name_query):
                 "Closest Match": closest_movie_name
             }
         else:
-            return {"Error": "Low similarity score. No recommendations found."}
+            return {"Recommended Movies": None,"Closest Match":None}
     else:
-        return {"Error": "No matching movie found."}
+        return {"Recommended Movies": None,"Closest Match":None}
 
 if __name__ == "__main__":
-    get_recommendations("Superman")
+    while True:
+        movie_name = input("Enter the name of movie : ").strip()
+        if movie_name == 'q':
+            break
+        get_recommendations(movie_name)

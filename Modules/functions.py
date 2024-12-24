@@ -74,16 +74,18 @@ def create_movie_recommender_page():
     
     st.write("### Enter a Hollywood Movie Name:")
     movie_name = st.text_input("e.g., The Dark Knight", "")
+    st.write("#### Enter a percentage (1-100) to specify how closely you want the entered movie name to match with the dataset for similarity scoring.")
+    similarity_percentage = st.number_input("e.g. 70",min_value=50,max_value=100)
     button = st.button("Suggest Few Movies")
     
     if button:
         if len(movie_name) == 0:
             st.warning("Please enter the name of a movie.")
         else:
-            function_return = model.get_recommendations(movie_name)
+            function_return = model.get_recommendations(movie_name,similarity_percentage)
             recommended_movies = function_return['Recommended Movies']
             closest_match = function_return['Closest Match']
-            if recommended_movies:
+            if recommended_movies and closest_match:
                 st.write("Closest match to the name you entered : ", closest_match)
                 st.subheader("Recommended Movies:")
                 st.write("Click on the image for more details ")
